@@ -1,0 +1,16 @@
+<header>
+    <img src="/img/logo.png" alt="Logo Maison Propiedades" srcset="">
+    <div class="menu">
+        <a href="/">Inicio</a>
+        <a href="/#nosotros">Nosotros</a>
+        <a href="/venta">Venta</a>
+        <a href="/alquiler">Alquiler</a>
+        <a href="/destacados">Destacados</a>
+        <a href="#contacto">Contacto</a>
+        <% if (locals.userLogged) { %>
+            <a href="/admin">ADMIN</a>
+            <% } %>
+
+        <a href="/login">LOGIN</a>
+    </div>
+</header>

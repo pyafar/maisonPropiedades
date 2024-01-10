@@ -1,0 +1,17 @@
+<%- include('./partials/head', {title : 'Resultado búsqueda' }) %> <%-
+include('./partials/header') %>
+<main>
+  <h2 class="mainTitle">RESULTADOS DE LA BÚSQUEDA</h2>
+  <hr />
+  <%- include('./components/filters') %>
+  <section class="propList_wrapper">
+    <% if (mensaje) { %>
+    <div class="alert alert-danger" role="alert">
+      <p><%= mensaje %></p>
+    </div>
+
+    <% } else { %> <% propiedades.forEach(propiedad=> { %> <%-
+    include('./components/cards', { propiedad }) %> <% }) %> <% } %>
+  </section>
+</main>
+<%- include('./partials/footer') %>

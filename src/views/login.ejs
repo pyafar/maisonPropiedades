@@ -1,0 +1,26 @@
+<%- include('./partials/head', {title : 'Login Administrador' }) %>
+
+
+<%- include('./partials/header') %>
+
+<main>
+
+    <h2 class="mainTitle">INGRESO ADMINISTRADOR</h2>
+    <section class="loginSection">
+        <form action="/login" method="POST">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" class="form-control" id="email" name="email" aria-describedby="email">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" id="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+        </form>
+    </section>
+
+</main>
+
+
+<%- include('./partials/footer') %>

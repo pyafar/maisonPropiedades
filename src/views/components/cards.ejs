@@ -1,0 +1,19 @@
+<article class="propCard">
+    <a href="/detail/<%= propiedad.propiedadId %>" class="propCard_link">
+        <div class="propCard_container">
+            <% if (propiedad.images && propiedad.images.length > 0) { %>
+                <img src="/img/propiedades/<%= propiedad.images[0] %>" class="propCard_img" alt="<%= propiedad.nombre %>">
+            <% } else { %>
+              <img src="/img/casalinda.jpg" class="card-img-top" alt="<%= propiedad.nombre %>">
+            <% } %>
+            <div class="propCard_info_container">
+                <h5><%= propiedad.direccion %>, <%= propiedad.zona %></h5>
+                <h4><%= propiedad.operacion %> | <%= propiedad.dormitorios %> ambientes</h4>
+            </div>
+        </div>
+        <div class="propCard_price">
+            <h3>USD <%= propiedad.precio %></h3>
+            <h4><%= propiedad.referencia %></h3>
+        </div>
+    </a>
+</article>

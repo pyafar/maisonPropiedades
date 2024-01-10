@@ -1,0 +1,27 @@
+{
+  "name": "maison-prop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/app.js",
+    "start": "node ./src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "express-validator": "^7.0.1",
+    "firebase": "^10.7.1",
+    "firebase-admin": "^11.11.1",
+    "method-override": "^3.0.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.0.2"
+  }
+}

@@ -1,0 +1,54 @@
+<html lang="en">
+<%- include('../partials/head', {title : 'Maison Propiedades' }) %>
+
+  <body>
+    <%- include('../partials/header') %>
+      <main>
+
+        <h2 class="mainTitle">PANEL DE ADMINISTRADOR</h2>
+        <div class="admin-create">
+          <a href="/admin/create" class="card-link create-link">AGREGAR NUEVA PROPIEDAD</a>
+        </div>
+        <hr>
+        
+        <section class="propList_wrapper">
+
+          <% propiedades.forEach(propiedad=> { %>
+            <article class="propCard">
+              <a href="/detail/<%= propiedad.propiedadId %>" class="propCard_link">
+                <div class="propCard_container">
+                  <% if (propiedad.images && propiedad.images.length> 0) { %>
+                    <img src="/img/propiedades/<%= propiedad.images[0] %>" class="propCard_img"
+                      alt="<%= propiedad.nombre %>">
+                    <% } else { %>
+                      <img src="/img/casalinda.jpg" class="card-img-top" alt="<%= propiedad.nombre %>">
+                      <% } %>
+                        <div class="propCard_info_container">
+                          <h5>
+                            <%= propiedad.direccion %>, <%= propiedad.zona %>
+                          </h5>
+                          <h4>
+                            <%= propiedad.operacion %> | REF #<%= propiedad.referencia %> 
+                          </h4>
+                        </div>
+                </div>
+                <div class="admin-btns">
+                  <a href="/admin/edit/<%= propiedad.propiedadId %>" class="btn admin-edit"><i class="fa fa-edit"></i>
+                    Editar</a>
+                  <form action="/admin/edit/<%= propiedad.propiedadId %>?_method=DELETE" method="POST"
+                    class="trash-form">
+                    <button type="submit" class="btn admin-trash"><i class="fas fa-trash"></i> Eliminar</button>
+                  </form>
+                </div>
+              </a>
+            </article>
+            <% }) %>
+        </section>
+
+      </main>
+
+      <%- include('../partials/footer') %>
+      
+  </body>
+
+</html>

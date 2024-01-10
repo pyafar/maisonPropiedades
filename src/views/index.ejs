@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head', {title : 'Maison Propiedades' }) %>
+
+  <body>
+    <%- include('./partials/header') %>
+    <main>
+      <section class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="/img/hero-mano.jpg" alt="Imagen 1" />
+          </div>
+          <div class="swiper-slide">
+            <img src="/img/hero-montevideo.jpg" alt="Imagen 2" />
+          </div>
+          <div class="swiper-slide">
+            <img src="/img/hero-punta.jpg" alt="Imagen 3" />
+          </div>
+        </div>
+      </section>
+
+      <section class="buscador">
+        <form action="/buscar" method="GET">
+          <div>
+            <select id="operacion" name="operacion">
+              <option value="" selected>Operación:</option>
+              <option value="venta">Venta</option>
+              <option value="alquiler">Alquiler</option>
+              <option value="temporal">Alquiler temporal</option>
+            </select>
+          </div>
+          <div>
+            <select id="tipo" name="tipo">
+              <option value="" selected>Tipo de propiedad:</option>
+              <option value="casa">Casa</option>
+              <option value="departamento">Departamento</option>
+              <option value="terreno">Terreno</option>
+            </select>
+          </div>
+          <div>
+            <select id="" name="zona">
+              <option value="" selected>Zona:</option>
+              <option value="priapolis ">Priápolis</option>
+              <option value="barra">La Barra</option>
+              <option value="montevideo">Montevideo</option>
+            </select>
+          </div>
+          <button type="submit">Buscar</button>
+        </form>
+      </section>
+
+      <div class="destacadas">
+        <h2 class="mainTitle">PROPIEDADES DESTACADAS</h2>
+        <section class="propList_wrapper">
+          <% let destacadasCount = 0; %> <% propiedades.forEach(propiedad => {
+          %> <% if (propiedad.destacada && destacadasCount < 8) { %> <%-
+          include('./components/cards', { propiedad }) %> <% destacadasCount++;
+          %> <% } %> <% }) %>
+
+          <!-- Si son menos de 8 destacadas va a meter cualquier propiedad de la base de datos -->
+          <% if (destacadasCount < 8) { %> <% propiedades.forEach(propiedad => {
+          %> <% if (!propiedad.destacada && destacadasCount < 8) { %> <%-
+          include('./components/cards', { propiedad }) %> <% destacadasCount++;
+          %> <% } %> <% }) %> <% } %>
+        </section>
+        <a class="verMas" href="">VER TODAS LAS PROPIEDADES DESTACADAS</a>
+      </div>
+
+      <section class="nosotros" id="nosotros">
+        <div>
+          <h3>SOBRE NOSOTROS</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+            ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+            consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
+            velit esse molestie consequat, vel illum dolore eu feugiat nulla
+            facilisis at vero eros et accumsan et iusto odio dignissim qui
+            blandit praesent luptatum zzril delenit augue duis dolore te feugait
+            nulla facilisi.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <%- include('./partials/footer') %>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".swiper-container", {
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+      });
+    </script>
+  </body>
+</html>

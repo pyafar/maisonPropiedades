@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head', {title : 'Detalle - ' }) %>
+
+    <body>
+        <%- include('partials/header') %>
+
+            <main>
+
+                <div class="card" style="width: 18rem;">
+                    <% if (propiedad.images && propiedad.images.length > 0) { %>
+                        <img src="/img/propiedades/<%= propiedad.images[0] %>" class="propCard_img" alt="<%= propiedad.nombre %>">
+                    <% } else { %>
+                      <img src="/img/casalinda.jpg" class="card-img-top" alt="<%= propiedad.nombre %>">
+                    <% } %>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= propiedad.nombre %>
+                        </h5>
+                        <h6 class="card-title">
+                            <%= propiedad.subtipo %>
+                        </h5>
+                        <hr>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Tipo de operación:
+                            <% if (propiedad.operacion==='temporal' ) { %>
+                                Alquiler temporal
+                                <% } else { %>
+                                    <%= propiedad.operacion %>
+                                        <% } %>
+                        </li>
+                        <li class="list-group-item">Precio: U$S<%= propiedad.precio %>
+                        </li>
+                        <li class="list-group-item">Disponibilidad: 
+                            <% if (propiedad.disponibilidad==='nodisponible' ) { %>
+                                No disponible
+                                <% } else if(propiedad.disponibilidad==='reserva' ) { %>
+                                    En reserva
+                                    <% } else { %>
+                                        <%= propiedad.disponibilidad %>
+                                            <% } %>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="list-group-item"><i class="fa fa-bed"></i>
+                            <%= propiedad.dormitorios %>
+                        </li>
+                        <li class="list-group-item"><i class="fa fa-shower"></i>
+                            <%= propiedad.banio %>
+                        </li>
+                        <li class="list-group-item">Superficie cubierta: <%= propiedad.superficie %>m²</li>
+                        <li class="list-group-item">Superficie total: <%= propiedad.suptotal %>m²</li>
+                    </ul>
+                    <p class="card-text">
+                        <%= propiedad.descripcion %>
+                    </p>
+                    <h6 class="card-title">Comodidades</h6>
+                    <ul>
+                        <li class="list-group-item">Cocina:
+                            <% if (propiedad.cocina==='semi' ) { %>
+                                Semi-integrada
+                                <% } else { %>
+                                    <%= propiedad.cocina %>
+                                        <% } %>
+                        </li>
+                        <li class="list-group-item">Living:
+                            <% if (propiedad.living==='comedor' ) { %>
+                                Living comedor
+                                <% } else { %>
+                                    <%= propiedad.living %>
+                                        <% } %>
+                        </li>
+                        <li class="list-group-item">Calefacción:
+                            <% if (propiedad.calefaccion==='aire' ) { %>
+                                Aire Acondicionado
+                                <% } else if (propiedad.calefaccion==='calefaccion' ){ %>
+                                    Calefacción central
+                                    <% } else if(propiedad.calefaccion==='losa' ) { %>
+                                        Losa radiante
+                                        <% } else if(propiedad.calefaccion==='estufa' ) { %>
+                                            Estufa a leña
+                                            <% } %>
+                        </li>
+                        <li class="list-group-item">Disposición: <%= propiedad.disposicion %>
+                        </li>
+                        <li class="list-group-item">Orientación: <%= propiedad.orientacion %>
+                        </li>
+                        <li class="list-group-item">Fiscal:
+                            <% if (propiedad.fiscal==='comunes' ) { %>
+                                Gastos comunes
+                                <% } else if (propiedad.calefaccion==='inmobiliaria' ){ %>
+                                    Contribución inmobiliaria
+                                    <% } else { %>
+                                        <%= propiedad.fiscal %>
+                                            <% } %>
+                        </li>
+                        <% if(propiedad.amueblado){%>
+                            <li class="list-group-item">Amueblado: Si</li>
+                            <% } %>
+                                <% if(propiedad.suite){%>
+                                    <li class="list-group-item">Suite: <%= propiedad.suite %>
+                                    </li>
+                                    <% } %>
+                                        <% if(propiedad.piscina){%>
+                                            <li class="list-group-item">Piscina: Si</li>
+                                            <% } %>
+                                                <% if(propiedad.estacionamiento){%>
+                                                    <li class="list-group-item">Estacionamiento: Si</li>
+                                                    <% } %>
+                                                        <% if(propiedad.vigilancia){%>
+                                                            <li class="list-group-item">Vigilancia: Si</li>
+                                                            <% } %>
+
+                    </ul>
+                    <div class="card-body">
+                        <button onclick="history.back()">Volver</button>
+                    </div>
+                </div>
+
+            </main>
+
+            <%- include('partials/footer') %>
+    </body>
+
+</html>

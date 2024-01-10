@@ -1,0 +1,124 @@
+footer {
+  font-family: "futura-pt", sans-serif;
+  background-color: #89a57d;
+  display: grid;
+  color: white;
+  padding: 3rem;
+  grid-template-columns: 1fr 1fr 0.5fr 1fr;
+  grid-template-rows: repeat(3, auto);
+  gap: 1rem;
+  grid-template-areas:
+    "logo logo iconoContacto formulario"
+    "comunicacion servicios iconoContacto formulario"
+    "legales legales legales legales";
+}
+
+footer .logoFooter {
+  grid-area: logo;
+}
+
+footer .datos img {
+  width: min-content;
+}
+
+footer .comunicacion {
+  grid-area: comunicacion;
+}
+
+footer .servicios {
+  grid-area: servicios;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+footer .servicios p {
+  font-weight: bolder;
+}
+
+footer .servicios ul {
+  margin-bottom: 0;
+}
+
+footer .comunicacion .itemComunicacion {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+
+footer .comunicacion img {
+  padding: 1.5rem 1rem 1rem 0rem;
+}
+
+footer .comunicacion .itemComunicacion p {
+  margin-bottom: 0;
+}
+
+footer .comunicacion .itemComunicacion p:first-of-type {
+  font-weight: bolder;
+}
+
+footer .icono {
+  grid-area: iconoContacto;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer .icono p {
+  margin-bottom: 0;
+  font-weight: bolder;
+}
+
+footer form {
+  grid-area: formulario;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  align-self: self-end;
+}
+
+footer form input,
+footer form textarea {
+  border: none;
+  color: #89a57d;
+  background: rgba(241, 241, 241, 0.95);
+  margin: 0.3rem 0;
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.3rem 1rem;
+  border-radius: 0.8rem;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+footer .legales {
+  grid-area: legales;
+  border-top: 2px solid #183f3a;
+  padding-top: 1rem;
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+
+footer form button{
+    height: 2rem;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0 1rem;
+    margin: 0.3rem 0;
+    border: none;
+    border-radius: 0.8rem;
+    color: #89a57d;
+    background-color: #F9C0C9;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+

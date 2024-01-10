@@ -1,0 +1,40 @@
+const Propiedad ={
+    create : (data, images)=>{
+        return {
+            nombre : data.nombre || null,
+            referencia : data.referencia || null,
+            descripcion : data.descripcion || null,
+            operacion : data.operacion || null,
+            tipo : data.tipo || null,
+            subtipo : data.subtipo || null,
+            direccion : data.direccion || null,
+            solar : data.solar || null,
+            padron : data.padron || null,
+            barrio : data.barrio || null,
+            localidad : data.localidad || null,
+            departamento : data.departamento || null,
+            pais : data.pais || null,
+            fiscal : data.fiscal || null,
+            images : images || [], 
+            precio : data.precio || null,
+            superficie : data.superficie || null,
+            suptotal : data.suptotal || null,
+            disponibilidad : data.disponibilidad || null,
+            calfaccion : data.calefaccion || null,
+            disposicion : data.disposicion || null,
+            cocina : data.cocina || null,
+            living : data.living || null,
+            orientacion : data.orientacion || null,
+            dormitorios : data.dormitorios || null,
+            banio : data.banio || null,
+            suite : data.suite === 'on' ? true : false,
+            destacada : data.destacada === 'on' ? true : false,
+            amueblado : data.amueblado === 'on' ? true : false,
+            piscina : data.piscina === 'on' ? true : false,
+            estacionamiento : data.estacionamiento === 'on' ? true : false,
+            vigilancia : data.vigilancia === 'on' ? true : false,
+            zona : data.zona || null,
+        }
+    }
+};
+module.exports = Propiedad;

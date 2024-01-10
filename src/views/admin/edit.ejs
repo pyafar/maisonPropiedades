@@ -1,0 +1,306 @@
+<html lang="en">
+<%- include('../partials/head', {title : 'Maison Propiedades' }) %>
+
+    <body>
+        <%- include('../partials/header') %>
+
+            <main>
+                <div class="containter" style="max-width: 80%; margin: auto;">
+
+                    <form class="row g-3" method="POST" action="/admin/edit/<%= propiedadId %>" enctype='multipart/form-data'>
+
+                        <h3>Propiedad #<%= propiedad.referencia %></h3>
+
+                        <div class="col-md-10">
+                            <label for="nombre" class="form-label">Nombre de la propiedad</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" value="<%= propiedad.nombre %>">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="referencia" class="form-label">Referencia #</label>
+                            <input type="text" class="form-control" id="referencia" name="referencia" value="<%= propiedad.referencia %>">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="operacion" class="form-label">Operacion</label>
+                            <select id="operacion" class="form-select" name="operacion">
+                                <option disabled>Seleccionar</option>
+                                <option value="venta" <%= propiedad.operacion === 'venta' ? 'selected' : '' %>>Venta</option>
+                                <option value="alquiler" <%= propiedad.operacion === 'alquiler' ? 'selected' : '' %>>Alquiler</option>
+                                <option value="temporal" <%= propiedad.operacion === 'temporal' ? 'selected' : '' %>>Alquiler temporal</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="tipo" class="form-label">Tipo</label>
+                            <select id="tipo" class="form-select" name="tipo" value="<%= propiedad.tipo %>">
+                                <option disabled>Seleccionar</option>
+                                <option value="casa" <%= propiedad.tipo === 'casa' ? 'selected' : '' %>>Casa</option>
+                                <option value="departamento" <%= propiedad.tipo === 'departamento' ? 'selected' : '' %>>Departamento</option>
+                                <option value="terreno" <%= propiedad.tipo === 'terreno' ? 'selected' : '' %>>Terreno</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="subtipo" class="form-label">Subtipo</label>
+                            <select id="subtipo" class="form-select" name="subtipo" value="<%= propiedad.subtipo %>">
+                                <option disabled>Seleccionar</option>
+                                <option value="casa" <%= propiedad.subtipo === 'casa' ? 'selected' : '' %>>Casa</option>
+                                <option value="cabaña" <%= propiedad.subtipo === 'cabaña' ? 'selected' : '' %>>Cabaña</option>
+                                <option value="chalet" <%= propiedad.subtipo === 'chalet' ? 'selected' : '' %>>Chalet</option>
+                                <option value="duplex" <%= propiedad.subtipo === 'duplex' ? 'selected' : '' %>>Duplex</option>
+                                <option value="triplex" <%= propiedad.subtipo === 'triplex' ? 'selected' : '' %>>Triplex</option>
+                                <option value="ph" <%= propiedad.subtipo === 'ph' ? 'selected' : '' %>>PH</option>
+                                <option value="departamento" <%= propiedad.subtipo === 'departamento' ? 'selected' : '' %>>Apartamento</option>
+                                <option value="monoambiente" <%= propiedad.subtipo === 'monoambiente' ? 'selected' : '' %>>Monoambiente</option>
+                                <option value="piso" <%= propiedad.subtipo === 'piso' ? 'selected' : '' %>>Piso</option>
+                                <option value="semipiso" <%= propiedad.subtipo === 'semipiso' ? 'selected' : '' %>>Semipiso</option>
+                                <option value="terreno" <%= propiedad.subtipo === 'terreno' ? 'selected' : '' %>>Terreno</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label for="direccion" class="form-label">Direccion</label>
+                            <input type="text" class="form-control" id="direccion" name="direccion"
+                                value="<%= propiedad.direccion %>">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="solar" class="form-label">Solar</label>
+                            <input type="text" class="form-control" id="solar" name="solar" value="<%= propiedad.solar %>">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="padron" class="form-label">Padrón</label>
+                            <input type="text" class="form-control" id="padron" name="padron" value="<%= propiedad.padron %>">
+                        </div>
+                        <div class="col-3">
+                            <label for="zona" class="form-label">Zona</label>
+                            <select id="zona" class="form-select" name="zona">
+                                <option disabled>Seleccionar</option>
+                                <option value="priapolis" <%= propiedad.zona === 'priapolis' ? 'selected' : '' %>>Priápolis</option>
+                                <option value="barra" <%= propiedad.zona === 'barra' ? 'selected' : '' %>>La Barra</option>
+                                <option value="montevideo" <%= propiedad.zona === 'montevideo' ? 'selected' : '' %>>Montevideo</option>
+                            </select>
+                        </div>
+                        <div class="col-3">
+                            <label for="barrio" class="form-label">Barrio</label>
+                            <input type="text" class="form-control" id="barrio" name="barrio" value="<%= propiedad.barrio %>">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="localidad" class="form-label">Localidad</label>
+                            <input type="text" class="form-control" id="localidad" name="localidad" value="<%= propiedad.localidad %>">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="departamento" class="form-label">Departamento</label>
+                            <input type="text" class="form-control" id="departamento" name="departamento" value="<%= propiedad.departamento %>">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="pais" class="form-label">País</label>
+                            <select id="pais" class="form-select" name="pais" value="<%= propiedad.pais %>">
+                                <option disabled>Seleccionar</option>
+                                <option value="uruguay" <%= propiedad.pais === 'uruguay' ? 'selected' : '' %>>Uruguay</option>
+                                <option value="argentina" <%= propiedad.pais === 'argentina' ? 'selected' : '' %>>Argentina</option>
+                                <option value="paraguay" <%= propiedad.pais === 'paraguay' ? 'selected' : '' %>>Paraguay</option>
+                                <option value="brasil" <%= propiedad.pais === 'brasil' ? 'selected' : '' %>>Brasil</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="fiscal" class="form-label">Fiscal</label>
+                            <select id="fiscal" class="form-select" name="fiscal" value="<%= propiedad.fiscal %>">
+                                <option disabled>Seleccionar</option>
+                                <option value="comunes" <%= propiedad.fiscal === 'comunes' ? 'selected' : '' %>>Gastos comunes</option>
+                                <option value="inmobiliaria" <%= propiedad.fiscal === 'inmobiliaria' ? 'selected' : '' %> >Contribución inmobiliaria</option>
+                                <option value="primaria" <%= propiedad.fiscal === 'primaria' ? 'selected' : '' %>>Primaria</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="descripcion" class="form-label">Descripción</label>
+                            <textarea class="form-control" id="descripcion" rows="3" name="descripcion" ><%= propiedad.descripcion %></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="images" class="form-label">Seleccionar imágenes</label>
+                            <input class="form-control" type="file" id="images" name="images" multiple>
+                        </div>
+
+                        <input type="hidden" name="imagesToDelete" value="<%= propiedad.images.join(',') %>">
+                        <label for="imagesToDelete[]">Seleccione las imágenes que desea eliminar</label>
+                        <% propiedad.images.forEach(e => { %>
+                            <div class="mb-3">
+
+                                <input type="checkbox" name="imagesToDelete[]" value="<%= e %>">
+                                <img src="/img/propiedades/<%= e %>" alt="" style="width: 250px">
+                            </div>
+                          
+                        <% }) %>
+
+                        <div class="col-md-3">
+                            <label for="precio" class="form-label">Precio</label>
+                            <input type="text" class="form-control" aria-label="Valor de la propiedad" id="precio"
+                                name="precio" value="<%= propiedad.precio %>">
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="superficie" class="form-label">Superficie cubierta</label>
+                            <input type="text" class="form-control" name="superficie" aria-label="Valor de la propiedad"
+                                id="superficie" value="<%= propiedad.superficie %>">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="suptotal" class="form-label">Superficie total</label>
+                            <input type="text" class="form-control" name="suptotal" aria-label="Valor de la propiedad"
+                                id="suptotal" value="<%= propiedad.suptotal %>">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="disponibilidad" class="form-label">Disponibilidad</label>
+                            <select id="disponibilidad" class="form-select" name="disponibilidad" value="<%= propiedad.disponibilidad %>">
+                                <option disabled>Seleccionar</option>
+                                <option value="disponible" <%= propiedad.disponibilidad === 'disponible' ? 'selected' : '' %>>Disponible</option>
+                                <option value="nodisponible" <%= propiedad.disponibilidad === 'nodisponible' ? 'selected' : '' %>>No disponible</option>
+                                <option value="reserva" <%= propiedad.disponibilidad === 'reserva' ? 'selected' : '' %>>En reserva</option>
+                            </select>
+                        </div>
+
+
+                        <h3>Comodidades</h3>
+                        <div class="col-md-3">
+                            <label for="calefaccion" class="form-label">Calefacción</label>
+                            <select id="calefaccion" class="form-select" name="calefaccion" value="<%= propiedad.calefaccion %>">
+                                <option disabled>Seleccionar</option>
+                                <option value="aire"<%= propiedad.calefaccion === 'aire' ? 'selected' : '' %>>Aire Acondicionado</option>
+                                <option value="calefaccion" <%= propiedad.calefaccion === 'calefaccion' ? 'selected' : '' %>>Calefacción central</option>
+                                <option value="losa" <%= propiedad.calefaccion === 'losa' ? 'selected' : '' %>>Losa radiante</option>
+                                <option value="estufa" <%= propiedad.calefaccion === 'estufa' ? 'selected' : '' %>>Estufa a leña</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="disposicion" class="form-label">Disposición</label>
+                            <select id="disposicion" class="form-select" name="disposicion" value="<%= propiedad.disposicion %>">
+                                <option disabled>Seleccionar</option>
+                                <option value="contrafrente" <%= propiedad.disposicion === 'contrafrente' ? 'selected' : '' %>>Contrafrente</option>
+                                <option value="frente" <%= propiedad.disposicion === 'frente' ? 'selected' : '' %>>Frente</option>
+                                <option  value="esquinero" <%= propiedad.disposicion === 'esquinero' ? 'selected' : '' %>>Esquinero</option>
+                                <option  value="lateral" <%= propiedad.disposicion === 'lateral' ? 'selected' : '' %>>Lateral</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="cocina" class="form-label">Cocina</label>
+                            <select id="cocina" class="form-select" name="cocina" value="<%= propiedad.cocina %>">
+                                <option selected disabled>Seleccionar</option>
+                                <option value="integrada" <%= propiedad.cocina === 'integrada' ? 'selected' : '' %>>Integrada</option>
+                                <option value="definida" <%= propiedad.cocina === 'semi' ? 'selected' : '' %>>Semi-integrada</option>
+                                <option value="semi" <%= propiedad.cocina === 'definida' ? 'selected' : '' %>>Definida</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="living" class="form-label">Living</label>
+                            <select id="living" class="form-select" name="living" value="<%= propiedad.living %>">
+                                <option selected disabled>Seleccionar</option>
+                                <option value="si"<%= propiedad.living === 'si' ? 'selected' : '' %>>Si</option>
+                                <option value="definido"<%= propiedad.living === 'definido' ? 'selected' : '' %>>Definido</option>
+                                <option value="comedor"<%= propiedad.living === 'comedor' ? 'selected' : '' %>>Living comedor</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="orientacion" class="form-label">Orientación</label>
+                            <select id="orientacion" class="form-select" name="orientacion" value="<%= propiedad.orientacion %>">
+                                <option disabled>Seleccionar</option>
+                                <option value="este" <%= propiedad.orientacion === 'este' ? 'selected' : '' %>>Este</option>
+                                <option value="noreste" <%= propiedad.orientacion === 'noreste' ? 'selected' : '' %>>Noreste</option>
+                                <option value="noroeste" <%= propiedad.orientacion === 'noroeste' ? 'selected' : '' %> >Noroeste</option>
+                                <option value="norte" <%= propiedad.orientacion === 'norte' ? 'selected' : '' %>>Norte</option>
+                                <option value="oeste" <%= propiedad.orientacion === 'oeste' ? 'selected' : '' %>>Oeste</option>
+                                <option value="sur" <%= propiedad.orientacion === 'sur' ? 'selected' : '' %>>Sur</option>
+                                <option value="sureste" <%= propiedad.orientacion === 'sureste' ? 'selected' : '' %>>Sureste</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="dormitorios" class="form-label">Dormitorios</label>
+                            <select id="dormitorios" class="form-select" name="dormitorios" value="<%= propiedad.dormitorios %>">
+                                <option disabled>Seleccionar</option>
+                                <option <%= propiedad.dormitorios === '1' ? 'selected' : '' %>>1</option>
+                                <option <%= propiedad.dormitorios === '2' ? 'selected' : '' %>>2</option>
+                                <option <%= propiedad.dormitorios === '3' ? 'selected' : '' %>>3</option>
+                                <option <%= propiedad.dormitorios === '4' ? 'selected' : '' %>>4</option>
+                                <option <%= propiedad.dormitorios === '5' ? 'selected' : '' %>>5</option>
+                                <option <%= propiedad.dormitorios === '6' ? 'selected' : '' %>>6</option>
+                                <option <%= propiedad.dormitorios === '7' ? 'selected' : '' %>>7</option>
+                                <option <%= propiedad.dormitorios === '8' ? 'selected' : '' %>>8</option>
+                                <option <%= propiedad.dormitorios === '9' ? 'selected' : '' %>>9</option>
+                                <option <%= propiedad.dormitorios === '10' ? 'selected' : '' %>>10</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="banio" class="form-label">Baños</label>
+                            <select id="banio" class="form-select" name="banio" value="<%= propiedad.banio %>">
+                                <option disabled>Seleccionar</option>
+                                <option <%= propiedad.banio === '1' ? 'selected' : '' %>>1</option>
+                                <option <%= propiedad.banio === '2' ? 'selected' : '' %>>2</option>
+                                <option <%= propiedad.banio === '3' ? 'selected' : '' %>>3</option>
+                                <option <%= propiedad.banio === '4' ? 'selected' : '' %>>4</option>
+                                <option <%= propiedad.banio === '5' ? 'selected' : '' %>>5</option>
+                                <option <%= propiedad.banio === '6' ? 'selected' : '' %>>6</option>
+                            </select>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-check">
+                                <label class="form-check-label" for="suite">Suite</label>
+                                    <select id="suite" class="form-select" name="suite" value="<%= propiedad.suite %>">
+                                        <option disabled>Seleccionar</option>
+                                        <option <%= propiedad.suite === '1' ? 'selected' : '' %>>1</option>
+                                        <option <%= propiedad.suite === '2' ? 'selected' : '' %>>2</option>
+                                        <option <%= propiedad.suite === '3' ? 'selected' : '' %>>3</option>
+                                        <option <%= propiedad.suite === '4' ? 'selected' : '' %>>4</option>
+                                        <option <%= propiedad.suite === '5' ? 'selected' : '' %>>5</option>
+                                        <option <%= propiedad.suite === '6' ? 'selected' : '' %>>6</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="destacada" name="destacada" <%= propiedad.destacada ? 'checked' : '' %>>
+                                <label class="form-check-label" for="destacada">
+                                    PROPIEDAD DESTACADA
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="amueblado" name="amueblado" <%= propiedad.amueblado ? 'checked' : '' %>>
+                                <label class="form-check-label" for="amueblado">
+                                    Amueblado
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="piscina" name="piscina" v<%= propiedad.piscina ? 'checked' : '' %>>
+                                <label class="form-check-label" for="piscina">
+                                    Piscina
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="estacionamiento" name="estacionamiento" <%= propiedad.estacionamiento ? 'checked' : '' %>>
+                                <label class="form-check-label" for="estacionamiento">
+                                    Estacionamiento
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="vigilancia" name="vigilancia" <%= propiedad.vigilancia ? 'checked' : '' %>>
+                                <label class="form-check-label" for="vigilancia">
+                                    Vigilancia
+                                </label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">EDITAR</button>
+                        </div>
+                    </form>
+                </div>
+                <button onclick="history.back()">Volver</button>
+                </div>
+            </main>
+            <%- include('../partials/footer') %>
+    </body>
+
+</html>
