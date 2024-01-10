@@ -47,7 +47,6 @@ const mainController = {
 
                 // Login exitoso
                 const user = querySnapshot.docs[0].data();
-                console.log('Usuario autenticado:', user);
 
                 req.session.user = user;
 

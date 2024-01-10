@@ -64,22 +64,20 @@ const adminController = {
         const propiedadId = req.params.id;
         const updatedData = req.body;
         const imagesToDelete = req.body.imagesToDelete || [];
-
-
-
+    
         try {
             const doc = await db.collection('propiedades').doc(propiedadId).get();
-
+    
             if (!doc.exists) {
                 res.status(404).send('Propiedad no encontrada');
                 return;
             }
-
+    
             const existingData = doc.data();
-
+    
             imagesToDelete.forEach(async image => {
                 const imagePath = `public/img/propiedades/${image}`;
-
+    
                 try {
                     if (fs.existsSync(imagePath)) {
                         await fs.promises.unlink(imagePath);
@@ -91,9 +89,13 @@ const adminController = {
                     console.error(`Error al eliminar la imagen ${image}:`, error);
                 }
             });
-
-            const updatedImages = existingData.images.filter(image => !imagesToDelete.includes(image));
-
+    
+            const uploadedImages = req.files.map(file => file.filename);
+    
+            const updatedImages = existingData.images
+                .filter(image => !imagesToDelete.includes(image))
+                .concat(uploadedImages);
+    
             await db.collection('propiedades').doc(propiedadId).update({
                 ...updatedData,
                 destacada: updatedData.destacada === 'on',
@@ -103,7 +105,7 @@ const adminController = {
                 vigilancia: updatedData.vigilancia === 'on',
                 images: updatedImages,
             });
-
+    
             console.log('Propiedad actualizada con éxito');
             res.redirect('/admin');
         } catch (error) {
