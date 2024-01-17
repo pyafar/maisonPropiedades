@@ -2,7 +2,19 @@
 include('./partials/header') %>
 <main>
   <h2 class="mainTitle">RESULTADOS DE LA BÚSQUEDA</h2>
-  <hr />
+  <div class="resultados">
+    <%- include('./components/filters') %>
+    <section class="propList_wrapper">
+      <% if (mensaje) { %>
+      <div class="alert alert-danger" role="alert">
+        <p><%= mensaje %></p>
+      </div>
+    
+      <% } else { %> <% propiedades.forEach(propiedad=> { %> <%-
+      include('./components/cards', { propiedad }) %> <% }) %> <% } %>
+    </section>
+  </div>
+  <!-- <hr />
   <%- include('./components/filters') %>
   <section class="propList_wrapper">
     <% if (mensaje) { %>
@@ -12,6 +24,6 @@ include('./partials/header') %>
 
     <% } else { %> <% propiedades.forEach(propiedad=> { %> <%-
     include('./components/cards', { propiedad }) %> <% }) %> <% } %>
-  </section>
+  </section> -->
 </main>
 <%- include('./partials/footer') %>
