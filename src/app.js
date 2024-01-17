@@ -43,7 +43,7 @@ app.use('/admin', adminRoutes)
 
 
 //** Server */
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
     console.log(`Servidor corriendo en puerto ${port} - URL: http://localhost:${port}`,
