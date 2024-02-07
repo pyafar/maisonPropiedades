@@ -1,38 +1,88 @@
-.filters{
-    background-color: #183F3A;
+.filters {
+  background-color: #183f3a;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+.filters select {
+  width: 250px;
+  height: 32px;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0 15px;
+  margin: 10px 0;
+  background-color: #fff;
+  border: none;
+  border-radius: 25px;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.filters form{
-    display: flex; 
-    justify-content: space-around;
-    align-items: center;
-    padding: 0px 5%;
-    margin: 3rem 0;
+.filters .filters-form button {
+  width: 250px;
+  height: 32px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 25px;
+  background-color: #f9c0c9;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.filters select{
-    width: 250px;
-    height: 32px;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 0 15px;
-    margin: 10px 0;
-    background-color: #fff;
-    border: none;
-    border-radius: 25px;
-    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+.toggle-filters {
+  display: none;
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
+  border: none;
+  color: #fff;
+  background-color: #ffffff00;
 }
 
-.filters button{
-    width: 250px;
-    height: 32px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 0 10px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 25px;
-    background-color: #F9C0C9;
-    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+.filters-form {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0px 5%;
+  margin: 3rem 0;
+}
+
+.filters-form .dropdown {
+  flex: 1 1 100%;
+}
+
+@media (max-width: 1200px) {
+  .filters select {
+    width: 200px;
+  }
+
+  .filters .filters-form button {
+    width: 200px;
+  }
+}
+
+@media (max-width: 992px) {
+  .toggle-filters {
+    display: block;
+  }
+
+  .filters-form {
+    display: none;
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .filters select {
+    width: 300px;
+  }
+
+  .filters .filters-form button {
+    width: 300px;
+    margin-bottom: 2rem;
+  }
+  .filters-form.active {
+    display: flex;
+  }
 }

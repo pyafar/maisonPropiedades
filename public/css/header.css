@@ -1,4 +1,5 @@
 header{
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -6,6 +7,7 @@ header{
     background-color: #eaeaea;
     padding: 0px 5%;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
 }
 
 header img{
@@ -22,4 +24,39 @@ header .menu a{
 
 header .menu a:hover{
     color: #DD9BA8;
+}
+
+header #menu-button{
+    display: none;
+    border: none;
+    background: none;
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+@media (max-width: 992px) {
+    header .menu {
+        display: none;
+    }
+
+    header #menu-button{
+        display: block;
+    }
+
+    header .menu.show-menu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 96px;
+        left: 0;
+        width: 100%;
+        background-color: #eaeaeaa1;
+        padding: 10px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px)
+    }
+
+    header .menu a {
+        margin: 5px 0;
+    }
 }

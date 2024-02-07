@@ -4,7 +4,7 @@ footer {
   display: grid;
   color: white;
   padding: 3rem;
-  grid-template-columns: 1fr 1fr 0.5fr 1fr;
+  grid-template-columns: 1fr 1fr 0.2fr 1.5fr;
   grid-template-rows: repeat(3, auto);
   gap: 1rem;
   grid-template-areas:
@@ -107,18 +107,51 @@ footer .legales {
   font-size: 0.75rem;
 }
 
+footer form button {
+  height: 2rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0 1rem;
+  margin: 0.3rem 0;
+  border: none;
+  border-radius: 0.8rem;
+  color: #89a57d;
+  background-color: #f9c0c9;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
 
-footer form button{
-    height: 2rem;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 0 1rem;
-    margin: 0.3rem 0;
-    border: none;
-    border-radius: 0.8rem;
-    color: #89a57d;
-    background-color: #F9C0C9;
-    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+@media (max-width: 992px) {
+  footer {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "logo logo comunicacion comunicacion servicios servicios"
+      "iconoContacto iconoContacto formulario formulario formulario formulario"
+      "legales legales legales legales legales legales";
   }
+}
 
+@media (max-width: 768px) {
+  footer {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "logo logo logo logo"
+      "comunicacion comunicacion servicios servicios"
+      "iconoContacto formulario formulario formulario"
+      "legales legales legales legales";
+  }
+}
+
+@media (max-width: 576px) {
+  footer {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "logo logo"
+      "comunicacion servicios"
+      "formulario formulario"
+      "legales legales";
+  }
+  footer .icono {
+    display: none;
+  }
+}

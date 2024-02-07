@@ -1,59 +1,87 @@
 <section class="filters">
-
-    <form action="/buscar" method="GET">
-        <div class="dropdown">
-            <select id="operacion" name="operacion" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                <div class="dropdown-menu">
-                    <option value="" selected>Tipo de operación</option>
-                    <option value="venta">Venta</option>
-                    <option value="alquiler">Alquiler</option>
-                    <option value="temporal">Alquiler Temporal</option>
-                    <option value="">Ver todo</option>
-                </div>
-            </select>
+  <button class="toggle-filters">Filtrar busqueda</button>
+  <form action="/buscar" method="GET" class="filters-form">
+    <div class="dropdown">
+      <select
+        id="operacion"
+        name="operacion"
+        class="btn btn-outline-secondary dropdown-toggle"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <div class="dropdown-menu">
+          <option value="" selected>Tipo de operación</option>
+          <option value="venta">Venta</option>
+          <option value="alquiler">Alquiler</option>
+          <option value="temporal">Alquiler Temporal</option>
+          <option value="">Ver todo</option>
         </div>
-        <div class="dropdown">
-            <select id="tipo" name="tipo" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                <div class="dropdown-menu">
-                    <option value="" selected>Tipo de propiedad</option>
-                    <option value="casa">Casa</option>
-                    <option value="departamento">Departamento</option>
-                    <option value="terreno">Terreno</option>
-                    <option value="">Ver todo</option>
-                </div>
-            </select>
+      </select>
+    </div>
+    <div class="dropdown">
+      <select
+        id="tipo"
+        name="tipo"
+        class="btn btn-outline-secondary dropdown-toggle"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <div class="dropdown-menu">
+          <option value="" selected>Tipo de propiedad</option>
+          <option value="casa">Casa</option>
+          <option value="departamento">Departamento</option>
+          <option value="terreno">Terreno</option>
+          <option value="">Ver todo</option>
         </div>
-        <div class="dropdown">
-            <select id="zona" name="zona" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                <div class="dropdown-menu">
-                    <option value="" selected>Zona</option>
-                    <option value="priapolis">Priápolis</option>
-                    <option value="barra">La Barra</option>
-                    <option value="montevideo">Montevideo</option>
-                    <option value="">Ver todo</option>
-                </div>
-            </select>
+      </select>
+    </div>
+    <div class="dropdown">
+      <select
+        id="zona"
+        name="zona"
+        class="btn btn-outline-secondary dropdown-toggle"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <div class="dropdown-menu">
+          <option value="" selected>Zona</option>
+          <option value="priapolis">Priápolis</option>
+          <option value="barra">La Barra</option>
+          <option value="montevideo">Montevideo</option>
+          <option value="">Ver todo</option>
         </div>
-        <div class="dropdown">
-            <select id="dormitorios" name="dormitorios" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                <div class="dropdown-menu">
-                    <option value="" selected>Dormitorios</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="">Ver todo</option>
-                </div>
-            </select>
+      </select>
+    </div>
+    <div class="dropdown">
+      <select
+        id="dormitorios"
+        name="dormitorios"
+        class="btn btn-outline-secondary dropdown-toggle"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <div class="dropdown-menu">
+          <option value="" selected>Dormitorios</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="">Ver todo</option>
         </div>
-        <button type="submit">Filtrar</button>
-    </form>
-
+      </select>
+    </div>
+    <button type="submit">Filtrar</button>
+  </form>
 </section>
+
+<script>
+  const toggleButton = document.querySelector(".toggle-filters");
+  const filtersForm = document.querySelector(".filters-form");
+
+  toggleButton.addEventListener("click", () => {
+    filtersForm.classList.toggle("active");
+  });
+</script>
