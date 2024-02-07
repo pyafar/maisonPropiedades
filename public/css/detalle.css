@@ -93,3 +93,21 @@ padding: 5%;
     background-color: #fff;
     color: #F9C0C9;
 }
+
+/* .slick-prev {
+    left: 35px;
+    z-index: 100;
+}
+
+.slick-next {
+    right: 35px;
+    z-index: 100;
+}
+
+.slick-prev:before {
+    content: url(/img/circle-chevron-left-solid.svg);
+}
+
+.slick-next:before {
+    content: url(/img/circle-chevron-right-solid.svg);
+} */

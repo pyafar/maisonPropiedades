@@ -115,27 +115,14 @@
           </ul>
         </div>
         <div class="galeria">
-          <img
-            src="/img/propiedades/<%= propiedad.images[1] %>"
-            class="fotos"
-            alt="<%= propiedad.nombre %>"
-          />
-          <img
-            src="/img/propiedades/<%= propiedad.images[2] %>"
-            class="fotos"
-            alt="<%= propiedad.nombre %>"
-          />
-          <img
-            src="/img/propiedades/<%= propiedad.images[3] %>"
-            class="fotos"
-            alt="<%= propiedad.nombre %>"
-          />
-          <img
-            src="/img/propiedades/<%= propiedad.images[4] %>"
-            class="fotos"
-            alt="<%= propiedad.nombre %>"
-          />
-        </div>
+          <% propiedad.images.forEach((imagen, index) => { %>
+              <img
+                  src="/img/propiedades/<%= imagen %>"
+                  class="fotos"
+                  alt="<%= propiedad.nombre %>"
+              />
+          <% }) %>
+      </div>
         <div class="card-body">
           <button onclick="history.back()">
             <i class="fa fa-chevron-circle-left"></i> Volver
