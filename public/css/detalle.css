@@ -94,20 +94,41 @@ padding: 5%;
     color: #F9C0C9;
 }
 
-/* .slick-prev {
-    left: 35px;
-    z-index: 100;
+.comodidades h4{
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    }
+
+.comodidades ul{
+display: grid;
+grid-template-columns: repeat(3, 1fr);
 }
 
-.slick-next {
-    right: 35px;
-    z-index: 100;
+@media (max-width: 768px) {
+    .detalle .principal{
+        flex-direction: column;
+    }
+
+    .detalle .principal .fotoContenedor{
+        width: 100%;
+    }
+
+    .detalle .principal .datos {
+        padding: 2rem;
+    }
+
+    .detalle .listaDetalles, .comodidades ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1rem;
+    }
+
 }
 
-.slick-prev:before {
-    content: url(/img/circle-chevron-left-solid.svg);
+@media (max-width: 576px) {
+    .detalle .listaDetalles, .comodidades ul {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        column-gap: 1rem;
+    }
 }
-
-.slick-next:before {
-    content: url(/img/circle-chevron-right-solid.svg);
-} */
