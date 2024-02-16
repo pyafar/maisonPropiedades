@@ -16,7 +16,7 @@ const adminController = {
                 return { ...propiedadData, propiedadId };
             });
 
-            res.render('adminpanel', { propiedades });
+            res.render('adminPanel', { propiedades });
         });
 
     },
