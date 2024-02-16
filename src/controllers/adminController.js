@@ -16,13 +16,13 @@ const adminController = {
                 return { ...propiedadData, propiedadId };
             });
 
-            res.render('admin/adminpanel', { propiedades });
+            res.render('adminpanel', { propiedades });
         });
 
     },
 
     create: (req, res) => {
-        res.render('admin/create')
+        res.render('create')
     },
 
     store: (req, res) => {
@@ -51,7 +51,7 @@ const adminController = {
                     return;
                 }
 
-                res.render('admin/edit', { propiedad: doc.data(), propiedadId: doc.id })
+                res.render('edit', { propiedad: doc.data(), propiedadId: doc.id })
             })
             .catch(error => {
                 console.error('Error al obtener la propiedad', error);
