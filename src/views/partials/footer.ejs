@@ -1,42 +1,62 @@
 <footer>
-    <img class="logoFooter" src="/img/logo_footer.png" alt="Logo Maison Propiedades" />
-      <div class="comunicacion">
-        <div class="itemComunicacion">
-          <img src="/img/icon_ubicacion.svg" alt="Ubicación" />
-          <div>
-            <p>ENCONTRANOS EN</p>
-            <p>Piriápolis, Uruguay</p>
-          </div>
-        </div>
-        <div class="itemComunicacion">
-          <img src="/img/icon_telefono.svg" alt="Teléfonos" />
-          <div>
-            <p>COMUNICATE AL</p>
-            <p>+598 98282101</p>
-          </div>
-        </div>
-      </div>
-      <div class="servicios">
-        <p>SERVICIOS:</p>
-        <ul>
-          <li>Marketing de propiedades</li>
-          <li>Compra Venta y Alquileres</li>
-          <li>Administraciones</li>
-        </ul>
+  <%- include('../components/botonWapp') %>
+  <img
+    class="logoFooter"
+    src="/img/logo_footer.png"
+    alt="Logo Maison Propiedades"
+  />
+  <div class="comunicacion">
+    <div class="itemComunicacion">
+      <img src="/img/icon_ubicacion.svg" alt="Ubicación" />
+      <div>
+        <p>ENCONTRANOS EN</p>
+        <p>Piriápolis, Uruguay</p>
       </div>
     </div>
-    <div class="icono">
-        <img src="/img/icon_sobre.svg" alt="Contacto">
-        <p>CONTACTO</p>
+    <div class="itemComunicacion">
+      <img src="/img/icon_telefono.svg" alt="Teléfonos" />
+      <div>
+        <p>COMUNICATE AL</p>
+        <p>+598 98282101</p>
+      </div>
     </div>
-    <form action="https://formsubmit.co/info@maisonpropiedades.com/" method="POST" id="contacto">
-        <input type="text" name="name" placeholder="Nombre" required>
-        <input type="email" name="email" placeholder="E-mail" required>
-        <input type="tel" name="phone" placeholder="Teléfono/Celular" minlength="10" maxlength="15"required>
-        <textarea rows="3" name="message" placeholder="Mensaje"required></textarea>
-        <button type="submit">ENVIAR</button>
-   </form>
-   <p class="legales">
-    Todas las medidas enunciadas son meramente orientativas, las medidas exactas serán las que se expresen en el respectivo título de propiedad de cada inmueble. Todas las fotos, imagenes y videos son meramente ilustrativos y no contractuales. Los precios enunciados son meramente orientativos y no contractuales.
-   </p>
+  </div>
+  <div class="servicios">
+    <p>SERVICIOS:</p>
+    <ul>
+      <li>Marketing de propiedades</li>
+      <li>Compra Venta y Alquileres</li>
+      <li>Administraciones</li>
+    </ul>
+  </div>
+
+  <div class="icono">
+    <img src="/img/icon_sobre.svg" alt="Contacto" />
+    <p>CONTACTO</p>
+  </div>
+  <form
+    action="https://formsubmit.co/info@maisonpropiedades.com/"
+    method="POST"
+    id="contacto"
+  >
+    <input type="text" name="name" placeholder="Nombre" required />
+    <input type="email" name="email" placeholder="E-mail" required />
+    <input
+      type="tel"
+      name="phone"
+      placeholder="Teléfono/Celular"
+      minlength="10"
+      maxlength="15"
+      required
+    />
+    <textarea rows="3" name="message" placeholder="Mensaje" required></textarea>
+    <button type="submit">ENVIAR</button>
+  </form>
+  <p class="legales">
+    Todas las medidas enunciadas son meramente orientativas, las medidas exactas
+    serán las que se expresen en el respectivo título de propiedad de cada
+    inmueble. Todas las fotos, imagenes y videos son meramente ilustrativos y no
+    contractuales. Los precios enunciados son meramente orientativos y no
+    contractuales.
+  </p>
 </footer>

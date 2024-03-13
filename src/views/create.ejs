@@ -1,297 +1,387 @@
 <html lang="en">
-<%- include('./partials/head', {title : 'Maison Propiedades' }) %>
+  <%- include('./partials/head', {title : 'Maison Propiedades' }) %>
 
-    <body>
-        <%- include('./partials/header') %>
-            <main>
-                <div class="containter" style="max-width: 80%; margin: auto;">
+  <body>
+    <%- include('./partials/header') %>
+    <main>
+      <div class="containter" style="max-width: 80%; margin: auto">
+        <form
+          class="row g-3"
+          method="POST"
+          action="/admin/create"
+          enctype="multipart/form-data"
+        >
+          <h3>Carga de propiedades</h3>
+          <div class="col-md-10">
+            <label for="nombre" class="form-label"
+              >Nombre de la propiedad</label
+            >
+            <input type="text" class="form-control" id="nombre" name="nombre" />
+          </div>
+          <div class="col-md-2">
+            <label for="referencia" class="form-label">Referencia #</label>
+            <input
+              type="text"
+              class="form-control"
+              id="referencia"
+              name="referencia"
+            />
+          </div>
 
-                    <form class="row g-3" method="POST" action="/admin/create" enctype='multipart/form-data'>
-                        <h3>Carga de propiedades</h3>
-                        <div class="col-md-10">
-                            <label for="nombre" class="form-label">Nombre de la propiedad</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre">
-                        </div>
-                        <div class="col-md-2">
-                            <label for="referencia" class="form-label">Referencia #</label>
-                            <input type="text" class="form-control" id="referencia" name="referencia">
-                        </div>
+          <div class="col-md-4">
+            <label for="operacion" class="form-label">Operacion</label>
+            <select id="operacion" class="form-select" name="operacion">
+              <option selected disabled>Seleccionar</option>
+              <option value="venta">Venta</option>
+              <option value="alquiler">Alquiler</option>
+              <option value="temporal">Alquiler temporal</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="tipo" class="form-label">Tipo</label>
+            <select id="tipo" class="form-select" name="tipo">
+              <option selected disabled>Seleccionar</option>
+              <option value="casa">Casa</option>
+              <option value="departamento">Departamento</option>
+              <option value="terreno">Terreno</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="subtipo" class="form-label">Subtipo</label>
+            <select id="subtipo" class="form-select" name="subtipo">
+              <option selected disabled>Seleccionar</option>
+              <option value="casa">Casa</option>
+              <option value="cabana">Cabaña</option>
+              <option value="chalet">Chalet</option>
+              <option value="duplex">Duplex</option>
+              <option value="triplex">Triplex</option>
+              <option value="ph">PH</option>
+              <option value="departamento">Departamento</option>
+              <option value="monoambiente">Monoambiente</option>
+              <option value="piso">Piso</option>
+              <option value="semipiso">Semipiso</option>
+              <option value="terreno">Terreno</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <label for="direccion" class="form-label">Direccion</label>
+            <input
+              type="text"
+              class="form-control"
+              id="direccion"
+              name="direccion"
+              placeholder="1234 Main St"
+            />
+          </div>
+          <div class="col-md-3">
+            <label for="solar" class="form-label">Solar</label>
+            <input type="text" class="form-control" id="solar" name="solar" />
+          </div>
+          <div class="col-md-3">
+            <label for="padron" class="form-label">Padrón</label>
+            <input type="text" class="form-control" id="padron" name="padron" />
+          </div>
+          <div class="col-3">
+            <label for="barrio" class="form-label">Barrio</label>
+            <input type="text" class="form-control" id="barrio" name="barrio" />
+          </div>
+          <div class="col-3">
+            <label for="zona" class="form-label">Zona</label>
+            <select id="zona" class="form-select" name="zona">
+              <option selected disabled>Seleccionar</option>
+              <option value="" selected>Zona</option>
+              <option value="pan-de-azucar">Pan de Azúcar</option>
+              <option value="san-carlos">San Carlos</option>
+              <option value="montevideo">Montevideo</option>
+              <option value="priapolis">Priápolis</option>
+              <option value="punta-colorada">Punta Colorada</option>
+              <option value="punta-negra">Punta Negra</option>
+              <option value="playa-hermosa">Playa Hermosa</option>
+              <option value="playa-verde">Playa Verde</option>
+              <option value="las-flores">Las Flores</option>
+              <option value="bella-vista">Bella Vista</option>
+              <option value="solis">Solís</option>
+              <option value="playa-grande">Playa Grande</option>
+              <option value="barra-de-portezuelo">Barra de Portezuelo</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label for="localidad" class="form-label">Localidad</label>
+            <input
+              type="text"
+              class="form-control"
+              id="localidad"
+              name="localidad"
+            />
+          </div>
+          <div class="col-md-3">
+            <label for="departamento" class="form-label">Departamento</label>
+            <input
+              type="text"
+              class="form-control"
+              id="departamento"
+              name="departamento"
+            />
+          </div>
+          <div class="col-md-3">
+            <label for="pais" class="form-label">País</label>
+            <select id="pais" class="form-select" name="pais">
+              <option selected disabled>Seleccionar</option>
+              <option value="uruguay">Uruguay</option>
+              <option value="argentina">Argentina</option>
+              <option value="paraguay">Paraguay</option>
+              <option value="brasil">Brasil</option>
+            </select>
+          </div>
 
+          <div class="col-md-3">
+            <label for="fiscal" class="form-label">Fiscal</label>
+            <select id="fiscal" class="form-select" name="fiscal">
+              <option selected disabled>Seleccionar</option>
+              <option value="comunes">Gastos comunes</option>
+              <option value="inmobiliaria">Contribución inmobiliaria</option>
+              <option value="primaria">Primaria</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripción</label>
+            <textarea
+              class="form-control"
+              id="descripcion"
+              rows="3"
+              name="descripcion"
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="images" class="form-label">Seleccionar imágenes</label>
+            <input
+              class="form-control"
+              type="file"
+              id="images"
+              name="images"
+              multiple
+            />
+          </div>
 
-                        <div class="col-md-4">
-                            <label for="operacion" class="form-label">Operacion</label>
-                            <select id="operacion" class="form-select" name="operacion">
-                                <option selected disabled>Seleccionar</option>
-                                <option value="venta">Venta</option>
-                                <option value="alquiler">Alquiler</option>
-                                <option value="temporal">Alquiler temporal</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="tipo" class="form-label">Tipo</label>
-                            <select id="tipo" class="form-select" name="tipo">
-                                <option selected disabled>Seleccionar</option>
-                                <option value="casa">Casa</option>
-                                <option value="departamento">Departamento</option>
-                                <option value="terreno">Terreno</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="subtipo" class="form-label">Subtipo</label>
-                            <select id="subtipo" class="form-select" name="subtipo">
-                                <option selected disabled>Seleccionar</option>
-                                <option value="casa">Casa</option>
-                                <option value="cabana">Cabaña</option>
-                                <option value="chalet">Chalet</option>
-                                <option value="duplex">Duplex</option>
-                                <option value="triplex">Triplex</option>
-                                <option value="ph">PH</option>
-                                <option value="departamento">Departamento</option>
-                                <option value="monoambiente">Monoambiente</option>
-                                <option value="piso">Piso</option>
-                                <option value="semipiso">Semipiso</option>
-                                <option value="terreno">Terreno</option>
-                            </select>
-                        </div>
-                        <div class="col-12">
-                            <label for="direccion" class="form-label">Direccion</label>
-                            <input type="text" class="form-control" id="direccion" name="direccion"
-                                placeholder="1234 Main St">
-                        </div>
-                        <div class="col-md-3">
-                            <label for="solar" class="form-label">Solar</label>
-                            <input type="text" class="form-control" id="solar" name="solar">
-                        </div>
-                        <div class="col-md-3">
-                            <label for="padron" class="form-label">Padrón</label>
-                            <input type="text" class="form-control" id="padron" name="padron">
-                        </div>
-                        <div class="col-3">
-                            <label for="barrio" class="form-label">Barrio</label>
-                            <input type="text" class="form-control" id="barrio" name="barrio">
-                        </div>
-                        <div class="col-3">
-                            <label for="zona" class="form-label">Zona</label>
-                            <select id="zona" class="form-select" name="zona">
-                                <option selected disabled>Seleccionar</option>
-                                <option value="priapolis ">Priápolis</option>
-                                <option value="barra">La Barra</option>
-                                <option value="montevideo">Montevideo</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="localidad" class="form-label">Localidad</label>
-                            <input type="text" class="form-control" id="localidad" name="localidad">
-                        </div>
-                        <div class="col-md-3">
-                            <label for="departamento" class="form-label">Departamento</label>
-                            <input type="text" class="form-control" id="departamento" name="departamento">
-                        </div>
-                        <div class="col-md-3">
-                            <label for="pais" class="form-label">País</label>
-                            <select id="pais" class="form-select" name="pais">
-                                <option selected disabled>Seleccionar</option>
-                                <option value="uruguay">Uruguay</option>
-                                <option value="argentina">Argentina</option>
-                                <option value="paraguay">Paraguay</option>
-                                <option value="brasil">Brasil</option>
-                            </select>
-                        </div>
+          <div class="col-md-3">
+            <label for="precio" class="form-label">Precio</label>
+            <input
+              type="text"
+              class="form-control"
+              aria-label="Valor de la propiedad"
+              id="precio"
+              name="precio"
+              placeholder="$"
+            />
+          </div>
 
-                        <div class="col-md-3">
-                            <label for="fiscal" class="form-label">Fiscal</label>
-                            <select id="fiscal" class="form-select" name="fiscal">
-                                <option selected disabled>Seleccionar</option>
-                                <option value="comunes">Gastos comunes</option>
-                                <option value="inmobiliaria">Contribución inmobiliaria</option>
-                                <option value="primaria">Primaria</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="descripcion" class="form-label">Descripción</label>
-                            <textarea class="form-control" id="descripcion" rows="3" name="descripcion"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="images" class="form-label">Seleccionar imágenes</label>
-                            <input class="form-control" type="file" id="images" name="images" multiple>
-                        </div>
+          <div class="col-md-3">
+            <label for="superficie" class="form-label"
+              >Superficie cubierta</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="superficie"
+              aria-label="Valor de la propiedad"
+              id="superficie"
+              placeholder="mts"
+            />
+          </div>
+          <div class="col-md-3">
+            <label for="suptotal" class="form-label">Superficie total</label>
+            <input
+              type="text"
+              class="form-control"
+              name="suptotal"
+              aria-label="Valor de la propiedad"
+              id="suptotal"
+              placeholder="mts"
+            />
+          </div>
+          <div class="col-md-3">
+            <label for="disponibilidad" class="form-label"
+              >Disponibilidad</label
+            >
+            <select
+              id="disponibilidad"
+              class="form-select"
+              name="disponibilidad"
+            >
+              <option selected disabled>Seleccionar</option>
+              <option value="disponible">Disponible</option>
+              <option value="nodisponible">No disponible</option>
+              <option value="reserva">En reserva</option>
+            </select>
+          </div>
 
-                        <div class="col-md-3">
-                            <label for="precio" class="form-label">Precio</label>
-                            <input type="text" class="form-control" aria-label="Valor de la propiedad" id="precio"
-                                name="precio" placeholder="$">
-                        </div>
+          <h3>Comodidades</h3>
+          <div class="col-md-3">
+            <label for="calefaccion" class="form-label">Calefacción</label>
+            <select id="calefaccion" class="form-select" name="calefaccion">
+              <option selected disabled>Seleccionar</option>
+              <option value="aire">Aire Acondicionado</option>
+              <option value="calefaccion">Calefacción central</option>
+              <option value="losa">Losa radiante</option>
+              <option value="estufa">Estufa a leña</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label for="disposicion" class="form-label">Disposición</label>
+            <select id="disposicion" class="form-select" name="disposicion">
+              <option selected disabled>Seleccionar</option>
+              <option value="contrafrente">Contrafrente</option>
+              <option value="esquinero">Esquinero</option>
+              <option value="frente">Frente</option>
+              <option value="lateral">Lateral</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label for="cocina" class="form-label">Cocina</label>
+            <select id="cocina" class="form-select" name="cocina">
+              <option selected disabled>Seleccionar</option>
+              <option value="integrada">Integrada</option>
+              <option value="definida">Definida</option>
+              <option value="semi">Semi-integrada</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label for="living" class="form-label">Living</label>
+            <select id="living" class="form-select" name="living">
+              <option selected disabled>Seleccionar</option>
+              <option value="si">Si</option>
+              <option value="definido">Definido</option>
+              <option value="comedor">Living comedor</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label for="orientacion" class="form-label">Orientación</label>
+            <select id="orientacion" class="form-select" name="orientacion">
+              <option selected disabled>Seleccionar</option>
+              <option value="este">Este</option>
+              <option value="noreste">Noreste</option>
+              <option value="noroeste">Noroeste</option>
+              <option value="norte">Norte</option>
+              <option value="oeste">Oeste</option>
+              <option value="sur">Sur</option>
+              <option value="sureste">Sureste</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label for="dormitorios" class="form-label">Dormitorios</label>
+            <select id="dormitorios" class="form-select" name="dormitorios">
+              <option selected disabled>Seleccionar</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label for="banio" class="form-label">Baños</label>
+            <select id="banio" class="form-select" name="banio">
+              <option selected disabled>Seleccionar</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+            </select>
+          </div>
+          <div class="col-3">
+            <div class="form-check">
+              <label class="form-check-label" for="suite">Suite</label>
+              <select id="suite" class="form-select" name="suite">
+                <option selected disabled>Seleccionar</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="destacada"
+                name="destacada"
+              />
+              <label class="form-check-label" for="destacada">
+                PROPIEDAD DESTACADA
+              </label>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="amueblado"
+                name="amueblado"
+              />
+              <label class="form-check-label" for="amueblado">
+                Amueblado
+              </label>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="piscina"
+                name="piscina"
+              />
+              <label class="form-check-label" for="piscina"> Piscina </label>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="estacionamiento"
+                name="estacionamiento"
+              />
+              <label class="form-check-label" for="estacionamiento">
+                Estacionamiento
+              </label>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="vigilancia"
+                name="vigilancia"
+              />
+              <label class="form-check-label" for="vigilancia">
+                Vigilancia
+              </label>
+            </div>
+          </div>
 
-                        <div class="col-md-3">
-                            <label for="superficie" class="form-label">Superficie cubierta</label>
-                            <input type="text" class="form-control" name="superficie" aria-label="Valor de la propiedad"
-                                id="superficie" placeholder="mts">
-                        </div>
-                        <div class="col-md-3">
-                            <label for="suptotal" class="form-label">Superficie total</label>
-                            <input type="text" class="form-control" name="suptotal" aria-label="Valor de la propiedad"
-                                id="suptotal" placeholder="mts">
-                        </div>
-                        <div class="col-md-3">
-                            <label for="disponibilidad" class="form-label">Disponibilidad</label>
-                            <select id="disponibilidad" class="form-select" name="disponibilidad">
-                                <option selected disabled>Seleccionar</option>
-                                <option value="disponible">Disponible</option>
-                                <option value="nodisponible">No disponible</option>
-                                <option value="reserva">En reserva</option>
-                            </select>
-                        </div>
-
-
-                        <h3>Comodidades</h3>
-                        <div class="col-md-3">
-                            <label for="calefaccion" class="form-label">Calefacción</label>
-                            <select id="calefaccion" class="form-select" name="calefaccion">
-                                <option selected disabled>Seleccionar</option>
-                                <option value="aire">Aire Acondicionado</option>
-                                <option value="calefaccion">Calefacción central</option>
-                                <option value="losa">Losa radiante</option>
-                                <option value="estufa">Estufa a leña</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="disposicion" class="form-label">Disposición</label>
-                            <select id="disposicion" class="form-select" name="disposicion">
-                                <option selected disabled>Seleccionar</option>
-                                <option value="contrafrente">Contrafrente</option>
-                                <option value="esquinero">Esquinero</option>
-                                <option value="frente">Frente</option>
-                                <option value="lateral">Lateral</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="cocina" class="form-label">Cocina</label>
-                            <select id="cocina" class="form-select" name="cocina">
-                                <option selected disabled>Seleccionar</option>
-                                <option value="integrada">Integrada</option>
-                                <option value="definida">Definida</option>
-                                <option value="semi">Semi-integrada</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="living" class="form-label">Living</label>
-                            <select id="living" class="form-select" name="living">
-                                <option selected disabled>Seleccionar</option>
-                                <option value="si">Si</option>
-                                <option value="definido">Definido</option>
-                                <option value="comedor">Living comedor</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="orientacion" class="form-label">Orientación</label>
-                            <select id="orientacion" class="form-select" name="orientacion">
-                                <option selected disabled>Seleccionar</option>
-                                <option value="este">Este</option>
-                                <option value="noreste">Noreste</option>
-                                <option value="noroeste">Noroeste</option>
-                                <option value="norte">Norte</option>
-                                <option value="oeste">Oeste</option>
-                                <option value="sur">Sur</option>
-                                <option value="sureste">Sureste</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="dormitorios" class="form-label">Dormitorios</label>
-                            <select id="dormitorios" class="form-select" name="dormitorios">
-                                <option selected disabled>Seleccionar</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="banio" class="form-label">Baños</label>
-                            <select id="banio" class="form-select" name="banio">
-                                <option selected disabled>Seleccionar</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                            </select>
-                        </div>
-                        <div class="col-3">
-                            <div class="form-check">
-                                <label class="form-check-label" for="suite">Suite</label>
-                                <select id="suite" class="form-select" name="suite">
-                                    <option selected disabled>Seleccionar</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                </select>
-
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="destacada" name="destacada">
-                                <label class="form-check-label" for="destacada">
-                                    PROPIEDAD DESTACADA
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="amueblado" name="amueblado">
-                                <label class="form-check-label" for="amueblado">
-                                    Amueblado
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="piscina" name="piscina">
-                                <label class="form-check-label" for="piscina">
-                                    Piscina
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="estacionamiento"
-                                    name="estacionamiento">
-                                <label class="form-check-label" for="estacionamiento">
-                                    Estacionamiento
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="vigilancia" name="vigilancia">
-                                <label class="form-check-label" for="vigilancia">
-                                    Vigilancia
-                                </label>
-                            </div>
-                        </div>
-
-
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-primary">Crear</button>
-                        </div>
-                    </form>
-                </div>
-                <button onclick="history.back()">Volver</button>
-                </div>
-            </main>
-            <%- include('./partials/footer') %>
-    </body>
-
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Crear</button>
+          </div>
+        </form>
+      </div>
+      <button onclick="history.back()">Volver</button>
+    </main>
+    <%- include('./partials/footer') %>
+  </body>
 </html>
